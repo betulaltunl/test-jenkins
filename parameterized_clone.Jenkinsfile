@@ -24,14 +24,14 @@ pipelineJob('Choice-Parameterized-Git-Clone') {
                         stage('Clean Workspace') { /* ... */ }
                         stage('Clone Repository') {
                             steps {
-                                def repoUrl = 'https://github.com/betulaltunl/test-jenkins.git' 
+                                // def repoUrl = 'https://github.com/betulaltunl/test-jenkins.git' 
                                 echo "Repo klonlanıyor: ${repoUrl}"
                                 echo "Seçilen Branch: ${params.BRANCH_TO_CLONE}" // Seçilen değer kullanılır
 
                                 checkout([
                                     \$class: 'GitSCM',
                                     branches: [[name: params.BRANCH_TO_CLONE]], // Seçilen branch kullanılır
-                                    userRemoteConfigs: [[url: repoUrl]],
+                                    userRemoteConfigs: [[url: 'https://github.com/betulaltunl/test-jenkins.git']],
                                     extensions: [[\$class: 'RelativeTargetDirectory', relativeTargetDir: 'source-code']]
                                 ])
                                 echo "Klonlama tamamlandı."
