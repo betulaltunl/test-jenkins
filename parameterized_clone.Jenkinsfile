@@ -28,7 +28,7 @@ pipelineJob('Choice-Parameterized-Git-Clone') {
                                 echo "Seçilen Branch: ${params.BRANCH_TO_CLONE}"
 
                                 checkout([
-                                    $class: 'GitSCM',
+                                    /$class: 'GitSCM',
                                     branches: [[name: params.BRANCH_TO_CLONE]],
                                     userRemoteConfigs: [[url: 'https://github.com/betulaltunl/test-jenkins.git']],
                                     extensions: [[ $class: 'RelativeTargetDirectory', relativeTargetDir: 'source-code' ]]
